@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "firm-jsonschema"
+version = "0.1.0"
+description = "Provides JSON schema support (validation) for FIRM software."
+authors = ["Steve Bate <svc-github@stevebate.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jsonschema = "^4.23.0"
+rfc3987 = "^1.3.8"
+firm = {path = "../firm", develop = true}
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+pytest = "^8.3.2"
+pytest-asyncio = "^0.24.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
