@@ -3,14 +3,14 @@ from pathlib import Path
 import pytest
 from jsonschema import ValidationError
 
-from firm_jsonschema.validation import create_activity_validator
+from firm_jsonschema.validation import create_validator
 
 
 @pytest.fixture(scope="session")
 def validator():
-    return create_activity_validator(
-        types=["Follow", "Accept", "Reject"],
-        schema_path=[Path(__file__).parent / "schemas"],
+    return create_validator(
+        root_schema="schema:activity",
+        schema_dirs=[Path(__file__).parent / "schemas"],
     )
 
 

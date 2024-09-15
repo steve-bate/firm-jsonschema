@@ -10,6 +10,7 @@ python = "^3.11"
 jsonschema = "^4.23.0"
 rfc3987 = "^1.3.8"
 firm = {path = "../firm", develop = true}
+pre-commit = "^3.8.0"
 
 
 [tool.poetry.group.dev.dependencies]
