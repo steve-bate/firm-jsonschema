@@ -34,7 +34,11 @@ def create_schema_retriever(
                             "/", "."
                         )
                     resource_path = f"{url_path.name}-schema.json"
-                    return pkg_resources.read_text(schema_package_name, resource_path)
+                    return (
+                        pkg_resources.files(schema_package_name)
+                        .joinpath(resource_path)
+                        .read_text()
+                    )
                 except FileNotFoundError:
                     pass
         raise FileNotFoundError(f"Schema not found: {uri}")
